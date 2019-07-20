@@ -1,0 +1,84 @@
+{
+  "name": "node-sequelize-api",
+  "version": "1.0.0",
+  "description": "Uma API com NodeJS e Sequelize.",
+  "main": "src/index.js",
+  "scripts": {
+    "local": "nodemon --exec babel-node src/index.js",
+    "start": "node ./build/index.js",
+    "clean": "rm -rf build && mkdir build",
+    "build-server": "babel ./src -d ./build",
+    "build": "yarn clean && yarn build-server",
+    "test": "NODE_ENV=test jest",
+    "lint": "./node_modules/.bin/eslint ./src/**/*.js",
+    "makemigrations": "yarn migrate-roll-all && yarn migrate-run",
+    "migrate-run": "./node_modules/.bin/sequelize db:migrate",
+    "migrate-roll-all": "./node_modules/.bin/sequelize db:migrate:undo:all",
+    "seed-run": "./node_modules/.bin/sequelize db:seed:all",
+    "seed-roll-all": "./node_modules/.bin/sequelize db:seed:undo:all"
+  },
+  "keywords": [
+    "node",
+    "sequelize",
+    "api"
+  ],
+  "engines": {
+    "node": ">= 10.16.0",
+    "npm": ">= 6.9.0",
+    "yarn": "^1.16.0"
+  },
+  "author": "Judson Costa",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/judsonc/node-sequelize-api.git"
+  },
+  "dependencies": {
+    "@hapi/joi": "^15.1.0",
+    "bluebird": "^3.5.5",
+    "body-parser": "^1.19.0",
+    "compression": "^1.7.4",
+    "cors": "^2.8.5",
+    "dotenv": "^8.0.0",
+    "express": "^4.17.0",
+    "express-winston": "^3.2.1",
+    "helmet": "^3.18.0",
+    "pg": "^7.11.0",
+    "pg-hstore": "^2.3.2",
+    "sequelize": "^5.10.1",
+    "uuid": "^3.3.2",
+    "winston": "^3.2.1",
+    "winston-daily-rotate-file": "^3.10.0"
+  },
+  "devDependencies": {
+    "@babel/cli": "^7.5.0",
+    "@babel/core": "^7.5.4",
+    "@babel/node": "^7.5.0",
+    "@babel/preset-env": "^7.5.4",
+    "@babel/register": "^7.4.4",
+    "babel-eslint": "^10.0.2",
+    "eslint": "^6.0.1",
+    "eslint-config-airbnb-base": "^13.2.0",
+    "eslint-plugin-import": "^2.18.0",
+    "husky": "^3.0.0",
+    "jest": "^24.8.0",
+    "nodemon": "^1.19.1",
+    "sequelize-cli": "^5.5.0"
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "yarn lint"
+    }
+  },
+  "jest": {
+    "verbose": true,
+    "testEnvironment": "node"
+  },
+  "nodemonConfig": {
+    "ignore": [
+      "src/__tests__",
+      "db",
+      "_logs"
+    ]
+  }
+}

@@ -1,0 +1,21 @@
+version: "3.3"
+
+services:
+  postgres:
+    image: postgres:11.2-alpine
+    restart: unless-stopped
+    ports:
+      - 5432:5432
+    environment:
+      POSTGRES_USER: sequelize
+      POSTGRES_PASSWORD: sequelize
+      POSTGRES_DB: sequelize
+
+  pgadmin:
+    image: dpage/pgadmin4:4.10
+    restart: unless-stopped
+    ports:
+      - 9000:80
+    environment:
+      PGADMIN_DEFAULT_EMAIL: sequelize
+      PGADMIN_DEFAULT_PASSWORD: sequelize
