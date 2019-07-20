@@ -39,7 +39,7 @@ export const postDenuncias = async ({ body }, res) => {
 
   const { error, value } = schema.validate(body);
   if (error) {
-    return res.status(500).json(error.details);
+    return res.status(400).json(error.details);
   }
 
   const denuncia = await models.Denuncia.create({
