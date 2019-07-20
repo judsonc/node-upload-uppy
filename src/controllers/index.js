@@ -28,7 +28,6 @@ export const postDenuncias = async ({ body }, res) => {
       lon: joi.string().required(),
       address: joi.object({
         road: joi.string().required(),
-        neighbourhood: joi.string().required(),
         suburb: joi.string().required(),
         city_district: joi.string().required(),
         city: joi.string().required(),
@@ -51,7 +50,7 @@ export const postDenuncias = async ({ body }, res) => {
     latitude: value.local.lat,
     longitude: value.local.lon,
     endereco: value.local.address.road,
-    bairro: value.local.address.neighbourhood,
+    bairro: value.local.address.neighbourhood || value.local.address.suburb,
     periferia: value.local.address.suburb,
     distrito: value.local.address.city_district,
     cidade: value.local.address.city,
