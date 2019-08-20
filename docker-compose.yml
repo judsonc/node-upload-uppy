@@ -12,7 +12,7 @@ services:
       POSTGRES_DB: sequelize
 
   pgadmin:
-    image: dpage/pgadmin4:4.10
+    image: dpage/pgadmin4:4.11
     restart: unless-stopped
     ports:
       - 9000:80

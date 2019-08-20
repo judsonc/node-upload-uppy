@@ -1,11 +1,23 @@
-# node-sequelize-api
+# vigilante-cidadao-api
+
+### Ambiente de desenvolvimento
+
+Antes de executar a aplicação, é preciso instanciar o banco de dados, para isso execute o Docker-compose.
+
+```sh
+$ docker-compose up -d
+```
+
+# Executar aplicação
 
 Para instalar as dependências:
+
 ```sh
 $ yarn
 ```
 
 Executar a aplicação em modo desenvolvimento na porta 5000:
+
 ```sh
 $ yarn local
 ```
@@ -28,10 +40,10 @@ $ yarn seed-run
 
 #### Variáveis de ambiente
 
- - `PORT`: porta da aplicação web;
- - `POSTGRES_USERNAME`: usuário de acesso do PostgreSQL;
- - `POSTGRES_PASSWORD`: senha de acesso do PostgreSQL;
- - `POSTGRES_HOST`: endereço do host do PostgreSQL;
- - `POSTGRES_PORT`: porta do PostgreSQL;
- - `POSTGRES_DATABASE`: nome do banco de dados;
- - `POSTGRES_LOG`: visualizar logs PostgreSQL;
+- `PORT`: porta da aplicação web;
+- `POSTGRES_USERNAME`: usuário de acesso do PostgreSQL;
+- `POSTGRES_PASSWORD`: senha de acesso do PostgreSQL;
+- `POSTGRES_HOST`: endereço do host do PostgreSQL;
+- `POSTGRES_PORT`: porta do PostgreSQL;
+- `POSTGRES_DATABASE`: nome do banco de dados;
+- `POSTGRES_LOG`: visualizar logs PostgreSQL;
